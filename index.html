@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro Bootcamp IA para Ventas – SalesBox360</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -356,23 +355,23 @@
     <div id="form-section">
       <div class="card-body">
 
-        <div class="badge">Experiencia explusiva - Cupos limitados</div>
+        <div class="badge">Cupos limitados</div>
 
         <h1>Registro de datos –<br /><span>Bootcamp IA para Ventas</span></h1>
         <p class="subtitle">Completa tu información para solicitar tu inscripción. Nuestro equipo se pondrá en contacto contigo para confirmar disponibilidad.</p>
 
         <div class="stats">
           <div class="stat">
-            <span class="stat-value">8 AM - 5 PM</span>
-            <span class="stat-label">Horario</span>
+            <span class="stat-value">1 día</span>
+            <span class="stat-label">Intensivo</span>
           </div>
           <div class="stat">
-            <span class="stat-value">Jueves - 2 de julio</span>
-            <span class="stat-label">Fecha</span>
+            <span class="stat-value">IA práctica</span>
+            <span class="stat-label">Enfoque</span>
           </div>
           <div class="stat">
-            <span class="stat-value">USD $400</span>
-            <span class="stat-label">Inversión</span>
+            <span class="stat-value">SalesBox360</span>
+            <span class="stat-label">Organiza</span>
           </div>
         </div>
 
@@ -443,7 +442,7 @@
       </div>
       <div class="ty-title">¡Gracias por solicitar tu inscripción<br/>al Bootcamp IA para Ventas!</div>
       <div class="ty-body">
-        Nuestro equipo te contactará por <strong>WhatsApp o correo electrónio</strong> para confirmar disponibilidad y coordinar el pago.
+        Nuestro equipo te contactará por <strong>WhatsApp o correo</strong> para confirmar disponibilidad y coordinar el pago.
       </div>
       <div class="ty-alert">
         <strong>Importante:</strong> Tu cupo queda confirmado únicamente después de realizar el pago.
@@ -510,11 +509,12 @@
         // ── Replace this URL with your deployed Apps Script Web App URL ──
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7rbTll4TU5d4ex-RobArm-Ybff6w-AygMC9ATBWB7adNVXkjwAzW0EKlxCqpgZlr6/exec';
 
+        const form = new FormData();
+        form.append('data', JSON.stringify(payload));
         await fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: form
         });
       } catch (e) {
         // no-cors mode always throws on response read; submission still goes through
@@ -527,7 +527,7 @@
 
       // Redirect after 3 seconds
       setTimeout(function() {
-      window.location.href = 'https://mentorias.salesbox360.la/gracias-por-tu-registro';
+        window.location.href = 'https://mentorias.salesbox360.la/gracias-por-tu-registro';
       }, 3000);
     }
 
