@@ -625,6 +625,7 @@
       const apellido = document.getElementById('apellido').value.trim();
       const cargo    = document.getElementById('cargo').value.trim();
       const empresa  = document.getElementById('empresa').value.trim();
+      const countryCode = document.getElementById('country-code').value;
       const whatsapp = document.getElementById('whatsapp').value.trim();
       const email    = document.getElementById('email').value.trim();
       const consent  = document.getElementById('consent').checked;
@@ -651,7 +652,7 @@
       btn.disabled = true;
       btn.textContent = 'Enviando...';
 
-      const payload = { nombre, apellido, cargo, empresa, whatsapp, email };
+      const payload = { nombre, apellido, cargo, empresa, whatsapp: `${countryCode} ${whatsapp}`, email };
 
       try {
         // ── Replace this URL with your deployed Apps Script Web App URL ──
